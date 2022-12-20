@@ -1,0 +1,104 @@
+# Binary Tree
+class Node:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.val = key
+
+#function to do preorder tree traversal
+def printPreorder(root):
+    if root:
+        #root/parent node
+        print(root.val)
+        # left child
+        printPreorder(root.left)
+        # right child
+        printPreorder(root.right)
+
+# A function to do inorder tree traversal 
+def printInorder(root):
+    if root:
+        # left child
+        printInorder(root.left)
+        # root/parent node
+        print(root.val)
+        #right child
+        printInorder(root.right)
+
+# A function to do postorder tree traversal
+def printPostorder(root):
+    if root:
+        #left child
+        printPostorder(root.left)
+        #right child
+        printPostorder(root.right)
+        # root/parent node
+        print(root.val)
+ 
+
+if __name__ == "__main__":
+  root = Node(1)
+  root.left = Node(2)
+  root.right = Node(3)
+  root.left.left = Node(4)
+  root.left.right = Node(5)
+ 
+  # Function call
+  print ("Preorder traversal of binary tree is")
+  printPreorder(root)
+  print( "\nPostorder traversal of binary tree is")
+  printPostorder(root)
+  print ("\nInorder traversal of binary tree is")
+  printInorder(root)# binary tree traversals
+# Binary Tree
+class Node:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.val = key
+
+#function to do preorder tree traversal
+def printPreorder(root):
+    if root:
+        #root/parent node
+        print(root.val)
+        # left child
+        printPreorder(root.left)
+        # right child
+        printPreorder(root.right)
+
+# A function to do inorder tree traversal 
+def printInorder(root):
+    if root:
+        # left child
+        printInorder(root.left)
+        # root/parent node
+        print(root.val)
+        #right child
+        printInorder(root.right)
+
+# A function to do postorder tree traversal
+def printPostorder(root):
+    if root:
+        #left child
+        printPostorder(root.left)
+        #right child
+        printPostorder(root.right)
+        # root/parent node
+        print(root.val)
+ 
+
+if __name__ == "__main__":
+  root = Node(1)
+  root.left = Node(2)
+  root.right = Node(3)
+  root.left.left = Node(4)
+  root.left.right = Node(5)
+ 
+  # Function call
+  print ("Preorder traversal of binary tree is")
+  printPreorder(root)
+  print( "\nPostorder traversal of binary tree is")
+  printPostorder(root)
+  print ("\nInorder traversal of binary tree is")
+  printInorder(root)
