@@ -1,0 +1,151 @@
+class Node:
+  def __init__(self,data=None):
+    self.data=data
+    self.next=None
+class SLL:
+  def __init__(self):
+    self.head=None
+  def InsertBegin(self,newdata):
+    newnode=Node(newdata)
+    newnode.next=self.head
+    self.head=newnode
+  def InsertEnd(self,newdata):
+    newnode=Node(newdata)
+    if self.head==None:
+      newnode.next=self.head
+      self.head=newnode
+    else:
+      temp=self.head
+      while temp.next!=None:
+        temp=temp.next
+      temp.next=newnode
+  def InsertPos(self,newdata,pos):
+    newnode=Node(newdata)
+    if self.head==None:
+      newnode.next=self.head
+      self.head=newnode
+    else:
+      ctr=2
+      temp=self.head
+      temp1=temp.next
+      while ctr!=pos:
+        temp1=temp1.next
+        temp=temp.next
+        ctr+=1
+      newnode.next=temp.next
+      temp.next=newnode
+  def DeleteBegin(self):
+    if self.head==None:
+      print("Underflow")
+    else:
+      self.head=self.head.next
+  def DeleteEnd(self):
+    if self.head==None:
+      print("Underflow")
+    else:
+      temp=self.head
+      temp1=temp.next
+      while temp1.next!=None:
+        temp1=temp1.next
+        temp=temp.next
+      temp.next=None
+  def DeletePos(self,pos):
+    if self.head==None:
+      print("Underflow")
+    else:
+      ctr=2
+      temp=self.head
+      temp1=temp.next
+      while ctr!=pos:
+        temp1=temp1.next
+        temp=temp.next
+        ctr+=1
+      temp.next=temp1.next
+  def search(self,pivot):
+    temp=self.head
+    if self.head==None:
+      print("No elements in list")
+    else:
+      index=1
+      flag=0
+      while temp!=None:
+        if temp.data==pivot:
+          print(pivot,"found at position",index)
+          flag=1
+          break
+        else:
+          temp=temp.next
+          index+=1
+      if flag==0:
+        print(pivot,"not found")
+  def count(self):
+    i=0
+    if self.head==None:
+      print("No elements")
+    else:
+      temp=self.head
+      while temp!=None:
+        i+=1
+        temp=temp.next
+    print("No. of nodes is",i)
+  def display(self):
+    if self.head==None:
+      print("No elements to display")
+    else:
+      temp=self.head
+      while temp!=None:
+        print(temp.data,end="->")
+        temp=temp.next
+    print()
+
+list1=SLL()
+
+while True:
+  print("""1.Insert at beginning
+2.Insert in position
+3.Insert at end
+4.Delete at beginning
+5.Delete at position
+6.Delete at end
+7.Display
+8.Search
+9.Count nodes
+10.Exit""")
+  ch=int(input("Enter choice:"))
+  if ch==1:
+    newdata=eval(input("Enter data:"))
+    list1.InsertBegin(newdata)
+    print()
+  elif ch==2:
+    newdata=eval(input("Enter data:"))
+    pos=int(input("Enter psoition:"))
+    list1.InsertPos(newdata,pos)
+    print()
+  elif ch==3:
+    newdata=eval(input("Enter data:"))
+    list1.InsertEnd(newdata)
+    print()
+  elif ch==4:
+    list1.DeleteBegin()
+    print()
+  elif ch==5:
+    pos=int(input("Enter position:"))
+    list1.DeletePos(pos)
+    print()
+  elif ch==6:
+    list1.DeleteEnd()
+    print()
+  elif ch==7:
+    list1.display()
+    print()
+  elif ch==8:
+    pivot=eval(input("Enter element to search:"))
+    list1.search(pivot)
+    print()
+  elif ch==9:
+    list1.count()
+  elif ch==10:
+    break
+  else:
+    print("##Wrong input")
+    print()
